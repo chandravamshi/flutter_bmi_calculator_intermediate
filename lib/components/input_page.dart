@@ -23,15 +23,7 @@ class _InputPageState extends State<InputPage> {
   Color maleCardColor = inActiveCardColor;
   Color feMaleCardColor = inActiveCardColor;
 
-  void updateColor(Gender selectedGender) {
-    if (selectedGender == Gender.male) {
-      maleCardColor = activeCardColor;
-      feMaleCardColor = inActiveCardColor;
-    } else {
-      maleCardColor = inActiveCardColor;
-      feMaleCardColor = activeCardColor;
-    }
-  }
+  late Gender selectedGender;
 
   @override
   Widget build(BuildContext context) {
@@ -48,15 +40,15 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        updateColor(Gender.male);
+                        selectedGender = Gender.male;
                       });
                     },
-                    child: const ReusableCard(
-                      cardChild: IconContent(
+                    child: ReusableCard(
+                      cardChild: const IconContent(
                         icon: FontAwesomeIcons.mars,
                         label: 'MALE',
                       ),
-                      colour: activeCardColor,
+                      colour: selectedGender == Gender.male ? activeCardColor : inActiveCardColor,
                     ),
                   ),
                 ),
@@ -64,12 +56,12 @@ class _InputPageState extends State<InputPage> {
                   child: GestureDetector(
                     onTap: () {
                       setState(() {
-                        updateColor(Gender.female);
+                        selectedGender = Gender.female;
                       });
                     },
-                    child: const ReusableCard(
-                      colour: activeCardColor,
-                      cardChild: IconContent(
+                    child: ReusableCard(
+                      colour: selectedGender == Gender.female ? activeCardColor : inActiveCardColor,
+                      cardChild: const IconContent(
                         icon: FontAwesomeIcons.venus,
                         label: 'FEMALE',
                       ),
