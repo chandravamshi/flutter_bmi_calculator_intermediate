@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
+import 'constants.dart';
+
 class IconContent extends StatelessWidget {
   const IconContent({
     super.key,
@@ -23,7 +25,7 @@ class IconContent extends StatelessWidget {
         ),
         Text(
           label,
-          style: const TextStyle(fontSize: 18.0, color: Color(0xFF8D8E98)),
+          style: const TextStyle(fontSize: 18.0, color:   Color(0xFF8D8E98)),
         )
       ],
     );
