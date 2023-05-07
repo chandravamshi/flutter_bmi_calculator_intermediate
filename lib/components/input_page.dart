@@ -35,7 +35,7 @@ class _InputPageState extends State<InputPage> {
           children: [
             Expanded(
                 child: Row(
-              children: [
+              children: [ 
                 Expanded(
                   child: ReusableCard(
                     onPress: () {
