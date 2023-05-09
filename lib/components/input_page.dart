@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/components/results_page.dart';
 import 'package:bmi_calculator/components/reusable_card.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -35,7 +36,7 @@ class _InputPageState extends State<InputPage> {
           children: [
             Expanded(
                 child: Row(
-              children: [ 
+              children: [
                 Expanded(
                   child: ReusableCard(
                     onPress: () {
@@ -210,10 +211,21 @@ class _InputPageState extends State<InputPage> {
                 )
               ],
             )),
-            Container(
-              color: kBottomContainerColor,
-              margin: const EdgeInsets.only(top: 10.0),
-              height: kBottomContainerHeight,
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ResultsPage()));
+              },
+              child: Container(
+                color: kBottomContainerColor,
+                margin: const EdgeInsets.only(top: 10.0),
+                padding: const EdgeInsets.only(bottom: 20.0),
+                width: double.infinity,
+                height: kBottomContainerHeight,
+                child: const Center(child: Text('Calculate',style: kLargeButtonTextStyle,)),
+              ),
             )
           ],
         ));
